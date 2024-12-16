@@ -69,6 +69,11 @@ serde_arrays = { version = "0.1.0", optional = true }
 "common" = []
 "cubepilot" = ["common"]
 
+# Added to silence warnings
+"csairlink" = []
+"loweheiser" = []
+"storm32" = []
+
 "all-dialects" = [
     "ardupilotmega",
     "asluav",
