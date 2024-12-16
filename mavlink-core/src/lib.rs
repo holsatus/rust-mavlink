@@ -910,7 +910,7 @@ pub fn read_v2_raw_message_signed<M: Message, R: Read>(
 
 fn read_v2_raw_message_inner<M: Message, R: Read>(
     reader: &mut PeekReader<R>,
-    signing_data: Option<&SigningData>,
+    _signing_data: Option<&SigningData>,
 ) -> Result<MAVLinkV2MessageRaw, error::MessageReadError> {
     loop {
         loop {
@@ -947,7 +947,7 @@ fn read_v2_raw_message_inner<M: Message, R: Read>(
         }
 
         #[cfg(feature = "signing")]
-        if let Some(signing_data) = signing_data {
+        if let Some(signing_data) = _signing_data {
             if !signing_data.verify_signature(&message) {
                 continue;
             }
